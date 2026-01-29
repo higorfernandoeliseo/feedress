@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minifeeds</title>
+    <link rel="stylesheet" href="assets/css/main.min.css">
+    <link rel="stylesheet" href="assets/css/menu.min.css">
+    <link rel="stylesheet" href="assets/css/mediascreen.min.css">
+    <link rel="stylesheet" href="assets/css/line-awseome/line-awesome.min.css">
+    <script src="assets/js/dexie.min.js"></script>
+</head>
+<body class="">
+    
+    <div class="wrapper">
+        <aside id="sidebar">
+            <div class="h-100">
+                <ul>
+                    <li class="sidebar-header">
+                        <button id="btnNewFeed">+ Add Feed</button>
+                    </li>
+                </ul>
+                <ul class="menu-top">
+                    <li><button id="btnSettings">Configurações</button></li>
+                </ul>
+                <div id="search-box">
+                    <input type="text" name="termos" id="searchEngine" placeholder="Pesquisar ..." spellcheck="false">
+                </div>
+                <ul>
+                    <li class="sidebar-header">
+                        Meus Feeds
+                    </li>
+                </ul>
+                <hr class="hr-box">
+                <ul class="sidebar-nav"></ul>
+                <hr class="hr-box">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-item">
+                        <label id="mreadlater" class="sidebar-link">Ler mais tarde</label>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <div class="main">
+            <nav class="dashboard-navbar">
+                <button class="toggle-btn" type="button">
+                    <i class="las la-bars"></i>
+                </button>
+                <!-- <div class="welcomeMessage"></div> -->
+                <div class="logo-navbar">
+                    <a href="/">
+                        <img src="assets/images/logo-1.webp" width="152" alt="Logo do FeedRess">
+                    </a>
+                </div>
+            </nav>
+            <main class="content">
+
+                <div id="defaultDisplay">
+                    <h2 id="prnDayMessage" class="subtitle">Hoje</h2>
+                    <!-- <p>Selecione uma pasta ao lado ou crie um nova para começar.</p> -->
+
+
+                    <button id="btnupdateAll">&#x27F3; Atualizar tudo</button>
+                    <div id="lastFeeds"></div>
+
+                    <div id="controlVermais">
+                        <button id="carregarMaisHome"> Ver mais </button>
+                    </div>
+                </div>
+
+                <div id="feedDisplay">
+                    <div class="bxfeedui">
+                        <h2 id="titledoFeed" class="subtitle"></h2>
+                        <p id="cntdNews"></p>
+                    </div>
+                    <div id="controls-forms">
+                        <ul>
+                            <li><button id="renameFeed">
+                                <i class="las la-pen"></i> Renomear</button>
+                            </li>
+                            <li><button id="deleteFeed">
+                               <i class="lar la-trash-alt"></i> Excluir
+                            </button></li>
+                            <li><button id="updateNews">
+                                &#x27F3; Atualizar
+                            </button></li>
+                        </ul>
+                    </div>
+                    <div id="linksFeed">
+                        <!-- <article class="feed">
+                            <h2><a href="#">Pesquisa CNN: 75% dos americanos são contra tomada da Groenlândia pelos EUA</a></h2>
+                            <p class="description">Mesmo entre os partidários do presidente Donald Trump a opinião está dividida: 50% dos republicanos e independentes dizem apoiar a medida, enquanto 50% se opõem ...</p>
+                            <p class="publicationDate">2h</p>
+                        </article> -->
+                    </div>
+                    <div id="controlVermais">
+                        <button id="carregarMais"> Ver mais </button>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+
+        <div id="modalNewFeed">
+            <div id="title-header">
+                <h2>Adicionar um feed</h2>
+                <button id="closeModalNewFeed">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+            <div id="messageBx"></div>
+            <form id="frmNewFeed">
+                <div id="body-modal">
+                    <div class="form-group">
+                        <input type="text" name="nomeFeed" id="nomeFeed" class="inputxt" placeholder="De um nome ao feed ...">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" name="urlFeed" id="urlFeed" class="inputxt" placeholder="URL do Feed">
+                    </div>
+                    <div class="form-group">
+                        <select name="categoriesFeed" class="inputxt" id="categoriesFeed">
+                        </select>
+                    </div>
+                </div>
+            <div id="form-submit">
+                <button id="insertFeed">Salvar</button>
+            </div>
+            </form>
+        </div>
+
+        <div id="modalSettings">
+            <div id="title-header">
+                <h2>Configurações</h2>
+                <button id="closeModalSettings">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+            <div id="modal-body">
+                <div id="description">
+                    <span>Categorizar o seus feeds pode ajudá-lo a organizar melhor as noticias em topicos. Você pode criar novas categorias.</span>
+                </div>
+                <div id="controls-categoria">
+                    <button id="btnNewCategoria">
+                        <i class="las la-plus"></i>
+                         nova categoria
+                    </button>
+                </div>
+                <div id="catItems">
+                    <!-- <div id="catSetting">
+                        <span class="nameCategoria">teste</span>
+                        <button id="btnEditCat">
+                            <i class="las la-pencil-alt"></i>
+                        </button>
+                    </div> -->
+                </div>
+                <div id="myFilters">
+                    <div class="info">
+                        <h2>Filtros</h2> 
+                        <span>Adicione filtros abaixo pode ajuda a organizar melhor as noticias e excluir noticias desnecessárias.</span> 
+                    </div>
+                    <div class="filtros">
+                        <input type="text" name="filters" id="filter_input" class="inputxt" placeholder="Digite as palavras separados por virgula..." spellcheck="false">
+                    </div>
+
+                </div>
+                <div id="copyright">
+                    Copyright &copy; <p class="pyear"></p> Igor Eliseo.
+                </div>
+            </div>
+        </div>
+
+
+        <div id="modalNewCat">
+            <div id="title-header">
+                <h2>Adicionar nova categoria</h2>
+                <button id="closeModalNewCat">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+            <div id="messageBx"></div>
+            <form id="frmNewCat">
+                <div id="body-modal">
+                    <div class="form-group">
+                        <input type="text" name="nomeCategoria" id="nomeCategoria" class="inputxt" placeholder="nome da categoria">
+                    </div>
+                </div>
+            <div id="form-submit">
+                <button id="insertCategoria">Salvar</button>
+            </div>
+            </form>
+        </div>
+
+        <div id="modalEditCat">
+            <div id="title-header">
+                <h2>Editar categoria</h2>
+                <button id="closeModalEditCat">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+            <div id="messageBx"></div>
+            <form id="frmEditCat">
+                <div id="body-modal">
+                    <div class="form-group">
+                        <input type="text" name="editnomeCategoria" id="editnomeCategoria" class="inputxt" placeholder="nome da categoria">
+                    </div>
+                </div>
+            <div id="form-submit">
+                <button id="updateCategoria">Salvar</button>
+            </div>
+            </form>
+        </div>
+
+        <div id="modalEditFeedData">
+            <div id="title-header">
+                <h2>Editar Feed</h2>
+                <button id="closeModalEditFeed">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+            <div id="messageBx"></div>
+            <form id="frmEditFeed">
+                <div id="body-modal">
+                    <div class="form-group">
+                        <input type="text" name="editnomeFeed" id="editnomeFeed" class="inputxt" placeholder="nome do feed">
+                    </div>
+                    <div class="form-group">
+                        <input type="url" name="editurlFeed" id="editurlFeed" class="inputxt" placeholder="URL do feed">
+                    </div>
+                </div>
+            <div id="form-submit">
+                <button id="updateFeed">Salvar</button>
+            </div>
+            </form>
+        </div>
+
+        <div id="modalDeleteFeed">
+            <div id="title-header">
+                <h2>Apagar Feed</h2>
+                <button id="closeModalDeleteFeed">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+                <div id="body-modal">
+                    <span class="message">Você tem certeza que deseja apagar esse feed?</span>
+                </div>
+            <div id="form-submit">
+                <button class="cancel" id="cancelDelete">Cancelar</button>
+                <button class="confirm" id="ConfirmdeleteFeed">Excluir</button>
+            </div>
+        </div>
+
+        <div id="modalDeleteCat">
+            <div id="title-header">
+                <h2>Apagar Categoria</h2>
+                <button id="closeModalDeleteCat">
+                    <i class="las la-times"></i>
+                </button>
+            </div>
+                <div id="body-modal">
+                    <span class="message">Você tem certeza que deseja apagar essa categoria?</span>
+                </div>
+            <div id="form-submit">
+                <button class="cancel" id="cancelDeleteCat">Cancelar</button>
+                <button class="confirm" id="ConfirmdeleteCat">Excluir</button>
+            </div>
+        </div>
+
+        <div id="overlay"></div>
+
+
+    </div>
+
+    <div id="toastMessages"></div>
+
+    <!-- <div id="feeds"></div> -->
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>

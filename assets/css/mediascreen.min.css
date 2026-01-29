@@ -1,0 +1,43 @@
+@media (max-width: 820px) {
+   
+    .dashboard-navbar {
+        padding: 18px 10px;
+    }
+   
+    .feed {
+        display: flex;
+        width: 100%;
+    }
+
+    .feed > h2 > a {
+        font-size: 19px;
+    }
+
+    .feed > p.description {
+        font-size: 16px;
+    }
+
+    div#feedDisplay h2.subtitle {
+        font-size: 23px;
+    }
+
+    div#controls-forms ul li {
+        margin-right: 20px;
+    }
+
+    div#controlVermais {
+        width: 100%;
+    }
+
+
+    div#modalNewFeed,
+    div#modalSettings,
+    div#modalNewCat,
+    div#modalEditCat,
+    div#modalEditFeedData,
+    div#modalDeleteFeed,
+    div#modalDeleteCat {
+        width: 370px;
+    }
+
+}
