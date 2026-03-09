@@ -1,27 +1,27 @@
 # feedress
-Leitor leve de Feeds RSS feito somente com HTML, CSS e JavaScript.
+Lightweight RSS feed reader built using only HTML, CSS, and JavaScript.
 
-## Tecnologias
+## Technologies used:
 ![HTML5 Logo](https://img.shields.io/badge/HTML-f06529?logo=html5&logoColor=white&labelColor=f06529)
 ![CSS](https://img.shields.io/badge/CSS-1293D8?logo=css&logoColor=fff)
 ![JavaScript Logo](https://shields.io/badge/JavaScript-F7DF1E?logo=JavaScript&logoColor=000&style=flat-square)
 
-- HTML para estruturação da pagina, feed e dos modais.
-- CSS para estilização do feed, sidebar e dos modais
-- Javascript ES6+ para toda a logica dos botoes, exibição e da obtenção do feed pelo Fetch API.
-- Utilização do Dexie.js para manipulação da base de dados IndexedDB.
+- HTML for structuring the page, feed, and modals.
+- CSS for styling the feed, sidebar, and modals.
+- Javascript ES6+ for all button logic, display, and fetching the feed via the Fetch API.
+- Use of Dexie.js for manipulating the IndexedDB database.
 
 ## Screenshot
 
-Aqui temos uma imagem do projeto rodando no Github Pages.
+Here we have an image of the project running on Github Pages.
 
 <img src="https://softbas.com.br/assets/images/feedress-screenshot.jpg" width="680px" />
 
 ## Test-drive
 
-Caso queira testar na sua maquina execute o seguinte comando no Prompt de comando ou PowerShell:
+If you want to test it on your machine, run the following command in the Command Prompt or PowerShell:
 
 `git clone https://github.com/higorfernandoeliseo/feedress.git`
 
-## Reportar erro:
-Caso queira informar um problema ou uma nova feature sinta-se a vontade de criar uma issue nesse repositorio.
+## Report error:
+If you want to report a problem or a new feature, feel free to create an issue in this repository.
