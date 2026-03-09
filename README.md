@@ -23,5 +23,9 @@ If you want to test it on your machine, run the following command in the Command
 
 `git clone https://github.com/higorfernandoeliseo/feedress.git`
 
+or test on browser:
+
+https://higorfernandoeliseo.github.io/feedress/
+
 ## Report error:
 If you want to report a problem or a new feature, feel free to create an issue in this repository.
